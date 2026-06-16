@@ -114,41 +114,6 @@
   }
   .hero-meta a{ color: var(--muted); text-decoration:none; border-bottom: 1px solid var(--line); padding-bottom:2px; transition: color .25s, border-color .25s;}
   .hero-meta a:hover{ color: var(--accent); border-color: var(--accent); }
-  .hero-inner{ display:flex; align-items:center; justify-content:space-between; gap: 60px; flex-wrap: wrap; }
-  .hero-text{ flex: 1 1 auto; min-width: 280px; }
-  .portrait-wrap{
-    position: relative; flex-shrink: 0;
-    width: clamp(160px, 18vw, 220px);
-    height: clamp(220px, 24vw, 320px);
-  }
-  .portrait-wrap img{
-    width: 100%; height: 100%; object-fit: cover; object-position: top center;
-    display: block;
-    filter: grayscale(15%) contrast(1.08);
-    transition: transform 0.6s cubic-bezier(.22,.61,.36,1);
-  }
-  .portrait-wrap:hover img{ transform: scale(1.04); }
-  .portrait-scanline{
-    position: absolute; inset: 0; pointer-events: none;
-    background: repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px);
-  }
-  .portrait-svg{
-    position: absolute; inset: -7px;
-    width: calc(100% + 14px); height: calc(100% + 14px);
-    pointer-events: none; overflow: visible;
-  }
-  .portrait-svg rect{
-    fill: none; stroke: #ff2840; stroke-width: 0.8;
-    filter: drop-shadow(0 0 2px rgba(255,40,64,0.4));
-    opacity: 0.5;
-    stroke-dasharray: 40 860;
-    stroke-dashoffset: 900;
-    animation: traceLine 3s linear infinite;
-  }
-  @keyframes traceLine{
-    0%   { stroke-dashoffset: 900; }
-    100% { stroke-dashoffset: 0; }
-  }
   .scroll-cue{
     position:absolute; bottom: 28px; left: clamp(20px,5vw,64px);
     font-family:'Space Mono', monospace; font-size: 11px; color: var(--muted);
@@ -462,26 +427,17 @@
 <!-- HERO -->
 <section class="hero">
   <div class="timecode-tag mono">00:00:00:00 — START</div>
-  <div class="hero-inner">
-    <div class="hero-text">
-      <h1 class="title"><span class="last">MUDDASSIR</span> ANSARI</h1>
-      <p class="role-line">
-        <strong>Video Editor &amp; Visual Storyteller</strong>, currently editing short-form reels and social content for <strong>Evertime Learning</strong>. Experienced in shooting, colour grading, and end-to-end post-production. Serving as Head of Social Media for <strong>Cosmos at Sharda University</strong>, with a background in psychology that informs a detail-oriented, behaviour-driven approach to visual storytelling.
-      </p>
-      <div class="hero-meta">
-        <a href="mailto:muddassiransari11@gmail.com">muddassiransari11@gmail.com</a>
-        <a href="tel:+918898008253">+91 88980 08253</a>
-        <a href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">@maddyysaurus on instagram</a>
-        <a href="https://maddy.vsco.site" target="_blank" rel="noopener">VSCO photography</a>
-      </div>
-    </div>
-    <div class="portrait-wrap">
-      <img src="portrait.jpg" alt="Muddassir Ansari">
-      <div class="portrait-scanline"></div>
-      <svg class="portrait-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <rect x="1" y="1" width="98" height="98"/>
-      </svg>
-    </div>
+  <h1 class="title">MD. MUDDASSIR <span class="last">ANSARI</span></h1>
+  <p class="role-line">
+    <strong>Video editor &amp; visual storyteller</strong> — cutting reels, short-form edits and
+    documentary-style content. Currently editing for <strong>Evertime Learning</strong>, while running
+    social for Cosmos at Sharda University on the side.
+  </p>
+  <div class="hero-meta">
+    <a href="mailto:muddassiransari11@gmail.com">muddassiransari11@gmail.com</a>
+    <a href="tel:+918898008253">+91 88980 08253</a>
+    <a href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">@maddyysaurus — instagram</a>
+    <a href="https://maddy.vsco.site" target="_blank" rel="noopener">VSCO — photography</a>
   </div>
   <div class="scroll-cue"><span class="bar"></span>SCROLL</div>
 </section>
@@ -501,14 +457,14 @@
       <div class="clip">
         <div class="timecode mono"><span class="node"></span>2020 — 2021</div>
         <h3>First Cuts</h3>
-        <p>Where it started, making edits, learning timing, transitions and music sync purely out of curiosity.</p>
+        <p>Where it started — making edits, learning timing, transitions and music sync purely out of curiosity.</p>
         <span class="tag mono">ORIGIN</span>
       </div>
 
       <div class="clip">
         <div class="timecode mono"><span class="node"></span>2023 — 2024</div>
         <h3>Short-Form Originals</h3>
-        <p>Moved into creating my own work, directing, shooting and editing original short-form content from concept to final cut.</p>
+        <p>Moved into creating my own work — directing, shooting and editing original short-form content from concept to final cut.</p>
         <span class="tag mono">SELF-DIRECTED</span>
       </div>
 
@@ -522,7 +478,7 @@
       <div class="clip active">
         <div class="timecode mono"><span class="node"></span>NEXT</div>
         <h3>What's Next</h3>
-        <p>Looking to bring this experience to a team that needs sharp, story-first editing, and eventually direct a short film of my own.</p>
+        <p>Looking to bring this experience to a team that needs sharp, story-first editing — and eventually direct a short film of my own.</p>
         <span class="tag mono">OPEN TO WORK</span>
       </div>
 
@@ -547,7 +503,7 @@
         <span class="wc-status mono">2026–Present</span>
       </div>
       <h3>Evertime Learning</h3>
-      <p>Day-to-day editing of short-form reels and social content for a digital marketing company, covering shooting through to final cut.</p>
+      <p>Day-to-day editing of short-form reels and social content for a digital marketing company — covering shooting through to final cut.</p>
       <a class="wc-link" href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">More on request</a>
     </div>
 
@@ -557,7 +513,7 @@
         <span class="wc-status mono">PRIVATE</span>
       </div>
       <h3>Narrative Short</h3>
-      <p>A short film project exploring psychological/horror themes. Not posted publicly due to content. Happy to share a private link on request.</p>
+      <p>A short film project exploring psychological/horror themes. Not posted publicly due to content — happy to share a private link on request.</p>
       <a class="wc-link" href="mailto:muddassiransari11@gmail.com">Request access</a>
     </div>
 
@@ -567,7 +523,7 @@
         <span class="wc-status mono">2024–Present</span>
       </div>
       <h3>Cosmos</h3>
-      <p>Head of Social Media for Cosmos, a Sharda University society. Content strategy, event coverage, photo &amp; video.</p>
+      <p>Head of Social Media for Cosmos, a Sharda University society — content strategy, event coverage, photo &amp; video.</p>
       <a class="wc-link" href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">See content</a>
     </div>
 
@@ -582,7 +538,7 @@
           <span>01</span>
         </div>
         <video controls preload="metadata">
-          <source src="Cinematic_Short.mp4" type="video/mp4">
+          <source src="vendors.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-caption">
@@ -591,7 +547,7 @@
           <span class="wc-status mono">PERSONAL</span>
         </div>
         <h4>Cinematic Short</h4>
-        <p>An original cinematic short, shot, graded and edited solo.</p>
+        <p>An original cinematic short — shot, graded and edited solo.</p>
       </div>
     </div>
 
@@ -602,7 +558,7 @@
           <span>02</span>
         </div>
         <video controls preload="metadata">
-          <source src="Red_Room_Curse.mp4" type="video/mp4">
+          <source src="red_room_curse.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-caption">
@@ -630,8 +586,8 @@
           <span class="wc-index mono">SHORT FILM</span>
           <span class="wc-status mono">EXCERPT</span>
         </div>
-        <h4>Narrative Short: Excerpt</h4>
-        <p>A short clip from a narrative short film exploring psychological themes and the feeling of paranoia and being watched. Full piece available on request.</p>
+        <h4>Narrative Short — Excerpt</h4>
+        <p>A short clip from a narrative short film exploring psychological themes and the feeling of paranoia and being watched — full piece available on request.</p>
       </div>
     </div>
   </div>
@@ -667,7 +623,7 @@
   </div>
 
   <div class="photo-cta">
-    <p>Full gallery covering film, fashion, abstract, architecture and more. Lives on VSCO.</p>
+    <p>Full gallery — film, fashion, abstract, architecture &amp; more — lives on VSCO.</p>
     <a class="wc-link mono" href="https://maddy.vsco.site" target="_blank" rel="noopener" style="font-size:13px;">View full gallery on VSCO</a>
   </div>
 </section>
@@ -702,7 +658,7 @@
     <a class="email mono" href="tel:+918898008253" style="margin-top:10px; display:inline-block;">+91 88980 08253</a>
   </div>
   <div class="foot-bottom">
-    <span>© 2026 MUDDASSIR ANSARI, MUMBAI / GREATER NOIDA, IN</span>
+    <span>© 2026 MUDDASSIR ANSARI — MUMBAI / GREATER NOIDA, IN</span>
     <div class="socials">
       <a href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">INSTAGRAM</a>
       <a href="https://maddy.vsco.site" target="_blank" rel="noopener">VSCO</a>
@@ -725,68 +681,91 @@
 
   revealEls.forEach(el => observer.observe(el));
 
-  // Gradient poster overlays — show when idle, hide on play, restore on end/pause
+  // Generate gradient posters for each video card
   const posters = [
-    { label: 'CINEMATIC SHORT', num: '01', colors: ['#1a0005', '#0d0d0d', '#ff2840'] },
-    { label: 'CLIENT WORK',     num: '02', colors: ['#0d0005', '#0a0a0a', '#b81e30'] },
-    { label: 'SHORT FILM',      num: '03', colors: ['#05001a', '#0d0d0d', '#b6ff3c'] },
+    {
+      label: 'CINEMATIC SHORT',
+      num: '01',
+      colors: ['#1a0005', '#0d0d0d', '#ff2840'],
+    },
+    {
+      label: 'CLIENT WORK',
+      num: '02',
+      colors: ['#0d0005', '#0a0a0a', '#b81e30'],
+    },
+    {
+      label: 'SHORT FILM',
+      num: '03',
+      colors: ['#05001a', '#0d0d0d', '#b6ff3c'],
+    },
   ];
 
-  document.querySelectorAll('.video-card').forEach((card, i) => {
+  document.querySelectorAll('.video-card video').forEach((video, i) => {
     const p = posters[i];
-    const video = card.querySelector('video');
-
-    // Build canvas gradient
     const canvas = document.createElement('canvas');
-    canvas.width = 400; canvas.height = 711;
+    canvas.width = 400;
+    canvas.height = 711; // 9:16
     const ctx = canvas.getContext('2d');
 
+    // Background gradient
     const bg = ctx.createRadialGradient(200, 355, 0, 200, 355, 420);
     bg.addColorStop(0, p.colors[0]);
     bg.addColorStop(1, p.colors[1]);
-    ctx.fillStyle = bg; ctx.fillRect(0, 0, 400, 711);
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, 400, 711);
 
+    // Noise grain
     for (let j = 0; j < 18000; j++) {
-      ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.06})`;
-      ctx.fillRect(Math.random() * 400, Math.random() * 711, 1, 1);
+      const x = Math.random() * 400;
+      const y = Math.random() * 711;
+      const a = Math.random() * 0.06;
+      ctx.fillStyle = `rgba(255,255,255,${a})`;
+      ctx.fillRect(x, y, 1, 1);
     }
 
+    // Accent glow
     const glow = ctx.createRadialGradient(200, 260, 0, 200, 260, 180);
-    glow.addColorStop(0, p.colors[2] + '22'); glow.addColorStop(1, 'transparent');
-    ctx.fillStyle = glow; ctx.fillRect(0, 0, 400, 711);
+    glow.addColorStop(0, p.colors[2] + '22');
+    glow.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, 400, 711);
 
-    ctx.strokeStyle = 'rgba(255,255,255,0.025)'; ctx.lineWidth = 1;
-    for (let y = 0; y < 711; y += 4) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(400,y); ctx.stroke(); }
+    // Scan lines
+    ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+    ctx.lineWidth = 1;
+    for (let y = 0; y < 711; y += 4) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(400, y); ctx.stroke();
+    }
 
-    ctx.save(); ctx.translate(200, 355);
-    ctx.beginPath(); ctx.arc(0, 0, 38, 0, Math.PI * 2);
-    ctx.strokeStyle = p.colors[2]; ctx.lineWidth = 1.5; ctx.globalAlpha = 0.7; ctx.stroke();
+    // Play icon
+    ctx.save();
+    ctx.translate(200, 355);
+    ctx.beginPath();
+    ctx.arc(0, 0, 38, 0, Math.PI * 2);
+    ctx.strokeStyle = p.colors[2];
+    ctx.lineWidth = 1.5;
+    ctx.globalAlpha = 0.7;
+    ctx.stroke();
     ctx.fillStyle = p.colors[2];
-    ctx.beginPath(); ctx.moveTo(-11,-14); ctx.lineTo(18,0); ctx.lineTo(-11,14); ctx.closePath(); ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-11, -14); ctx.lineTo(18, 0); ctx.lineTo(-11, 14);
+    ctx.closePath();
+    ctx.fill();
     ctx.restore();
 
+    // Label bottom
     ctx.globalAlpha = 1;
-    ctx.fillStyle = 'rgba(9,9,9,0.7)'; ctx.fillRect(0, 640, 400, 71);
-    ctx.font = '500 11px "Space Mono", monospace'; ctx.fillStyle = p.colors[2];
+    ctx.fillStyle = 'rgba(9,9,9,0.7)';
+    ctx.fillRect(0, 640, 400, 71);
+    ctx.font = '500 11px "Space Mono", monospace';
+    ctx.fillStyle = p.colors[2];
+    ctx.letterSpacing = '3px';
     ctx.fillText(p.label, 20, 672);
-    ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.font = '400 11px "Space Mono", monospace';
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.font = '400 11px "Space Mono", monospace';
     ctx.fillText(p.num, 366, 672);
 
-    // Create overlay element on top of video
-    const overlay = document.createElement('div');
-    overlay.style.cssText = `
-      position:absolute; inset:0; z-index:2; pointer-events:none;
-      background-image: url(${canvas.toDataURL('image/jpeg', 0.85)});
-      background-size: cover; background-position: center;
-      transition: opacity 0.4s ease;
-      opacity: 1;
-    `;
-    card.appendChild(overlay);
-
-    // Hide on play, show on pause/end
-    video.addEventListener('play', () => { overlay.style.opacity = '0'; overlay.style.pointerEvents = 'none'; });
-    video.addEventListener('pause', () => { overlay.style.opacity = '1'; });
-    video.addEventListener('ended', () => { overlay.style.opacity = '1'; });
+    video.setAttribute('poster', canvas.toDataURL('image/jpeg', 0.85));
   });
 </script>
 

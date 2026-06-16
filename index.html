@@ -138,12 +138,14 @@
     pointer-events: none; overflow: visible;
   }
   .portrait-svg rect{
-    fill: none; stroke: #ff2840; stroke-width: 1.5;
-    stroke-dasharray: 900;
+    fill: none; stroke: #ff2840; stroke-width: 0.8;
+    filter: drop-shadow(0 0 2px rgba(255,40,64,0.4));
+    opacity: 0.5;
+    stroke-dasharray: 40 860;
     stroke-dashoffset: 900;
-    animation: traceRect 2.5s linear infinite;
+    animation: traceLine 3s linear infinite;
   }
-  @keyframes traceRect{
+  @keyframes traceLine{
     0%   { stroke-dashoffset: 900; }
     100% { stroke-dashoffset: 0; }
   }

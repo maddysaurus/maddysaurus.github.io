@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Md. Muddassir Ansari · Video Editor &amp; Visual Storyteller</title>
+<title>Md. Muddassir Ansari — Video Editor &amp; Visual Storyteller</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -82,37 +82,6 @@
       radial-gradient(ellipse 50% 40% at 10% 90%, rgba(182,255,60,0.07), transparent 60%);
     pointer-events:none;
   }
-  .hero-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    gap: clamp(30px, 5vw, 70px); flex-wrap: wrap;
-  }
-  .hero-text{ flex: 1 1 480px; min-width: 280px; }
-  .hero-portrait{
-    position: relative; flex: 0 0 auto; isolation: isolate;
-    width: clamp(200px, 26vw, 300px); aspect-ratio: 4/5;
-    border-radius: 4px; overflow: hidden;
-    border: 1px solid var(--line);
-    animation: fadeUp 0.9s ease-out 0.4s both;
-  }
-  .hero-portrait img{
-    width:100%; height:100%; object-fit: cover; display:block;
-    filter: grayscale(15%) contrast(1.05);
-    position: relative; z-index: 1;
-  }
-  .hero-portrait::after{
-    content:""; position:absolute; inset:0; z-index: 0;
-    background: linear-gradient(to top, rgba(9,9,9,0.4), transparent 45%);
-    pointer-events:none;
-  }
-  .hp-label{
-    position:absolute; top:0; left:0; right:0; z-index:2;
-    display:flex; justify-content:space-between; align-items:center;
-    padding: 12px 14px; pointer-events:none;
-    background: linear-gradient(to bottom, rgba(9,9,9,0.75), transparent);
-    font-family:'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: var(--ink);
-  }
-  .hp-label .vc-rec{ color: var(--accent); display:flex; align-items:center; gap:6px; }
-  .hp-label .vc-rec .dot{ width:6px; height:6px; border-radius:50%; background: var(--accent); }
   .timecode-tag{
     font-family:'Space Mono', monospace; font-size: 12px; color: var(--accent);
     letter-spacing: 4px; margin-bottom: 18px; display:flex; align-items:center; gap:10px;
@@ -145,6 +114,44 @@
   }
   .hero-meta a{ color: var(--muted); text-decoration:none; border-bottom: 1px solid var(--line); padding-bottom:2px; transition: color .25s, border-color .25s;}
   .hero-meta a:hover{ color: var(--accent); border-color: var(--accent); }
+  .hero-inner{ display:flex; align-items:center; justify-content:space-between; gap: 40px; flex-wrap: wrap; }
+  .hero-text{ flex: 1 1 auto; min-width: 280px; }
+  .portrait-wrap{
+    position: relative; flex-shrink: 0;
+    width: clamp(160px, 18vw, 240px);
+    height: clamp(200px, 22vw, 300px);
+  }
+  .portrait-wrap img{
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    display: block; position: relative; z-index: 1;
+    filter: grayscale(20%) contrast(1.05);
+  }
+  .portrait-wrap::before, .portrait-wrap::after{
+    content: ""; position: absolute; z-index: 2; pointer-events: none;
+  }
+  .portrait-wrap::before{
+    top: -8px; left: -8px; right: 8px; bottom: 8px;
+    border: 1.5px solid var(--accent);
+    animation: boxShift 3s ease-in-out infinite alternate;
+  }
+  .portrait-wrap::after{
+    top: 8px; left: 8px; right: -8px; bottom: -8px;
+    border: 1px solid rgba(255,40,64,0.3);
+    animation: boxShift 3s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes boxShift{
+    0%{ transform: translate(0,0); }
+    100%{ transform: translate(4px, -4px); }
+  }
+  .portrait-scanline{
+    position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px);
+  }
+  .portrait-label{
+    position: absolute; bottom: -22px; left: 0;
+    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px;
+    color: var(--accent); z-index: 4;
+  }
   .scroll-cue{
     position:absolute; bottom: 28px; left: clamp(20px,5vw,64px);
     font-family:'Space Mono', monospace; font-size: 11px; color: var(--muted);
@@ -153,11 +160,6 @@
   }
   .scroll-cue .bar{ width:1px; height: 40px; background: linear-gradient(var(--accent2), transparent); animation: drop 1.8s infinite; }
   @keyframes drop{ 0%{transform:scaleY(0); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 50.01%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;} }
-
-  @media (max-width: 760px){
-    .hero-inner{ flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
-    .hero-portrait{ width: min(60vw, 260px); }
-  }
 
   /* ===== SECTION HEADERS ===== */
   .section{ padding: clamp(70px, 12vh, 140px) clamp(20px, 5vw, 64px); border-bottom: 1px solid var(--line); }
@@ -242,13 +244,11 @@
     position: relative; border-radius: 4px 4px 0 0; overflow: hidden;
     background: var(--panel); border: 1px solid var(--line); border-bottom: none;
     aspect-ratio: 9/16; transition: border-color .3s;
-    isolation: isolate;
   }
   .video-card-wrap:hover .video-card{ border-color: var(--accent2); }
   .video-card video{
     width:100%; height:100%; object-fit: cover; display:block;
-    background: #000;
-    position: relative; z-index: 1;
+    background: radial-gradient(ellipse at center, #1a0a0d 0%, #0d0d0d 100%);
   }
   /* Flash / glint sweep on hover */
   .video-card::after{
@@ -464,26 +464,24 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="timecode-tag mono">00:00:00:00 — START</div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="timecode-tag mono">00:00:00:00 START</div>
       <h1 class="title">MD. MUDDASSIR <span class="last">ANSARI</span></h1>
       <p class="role-line">
-        Videographer, photographer, editor. I shoot it, then I cut it, and I'm probably still tweaking the timing at 2am.
+        <strong>Video Editor &amp; Visual Storyteller</strong> — currently editing short-form reels and social content for <strong>Evertime Learning</strong>. Experienced in shooting, colour grading, and end-to-end post-production. Serving as Head of Social Media for <strong>Cosmos at Sharda University</strong>, with a background in psychology that informs a detail-oriented, behaviour-driven approach to visual storytelling.
       </p>
       <div class="hero-meta">
         <a href="mailto:muddassiransari11@gmail.com">muddassiransari11@gmail.com</a>
         <a href="tel:+918898008253">+91 88980 08253</a>
-        <a href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">@maddyysaurus · instagram</a>
-        <a href="https://maddy.vsco.site" target="_blank" rel="noopener">VSCO · photography</a>
+        <a href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">@maddyysaurus — instagram</a>
+        <a href="https://maddy.vsco.site" target="_blank" rel="noopener">VSCO — photography</a>
       </div>
     </div>
-    <div class="hero-portrait">
-      <div class="hp-label mono">
-        <span class="vc-rec"><span class="dot"></span>LIVE</span>
-        <span>ON SET</span>
-      </div>
-      <img src="portrait.jpg" alt="Md. Muddassir Ansari">
+    <div class="portrait-wrap">
+      <img src="portrait.jpg" alt="Muddassir Ansari">
+      <div class="portrait-scanline"></div>
+      <div class="portrait-label">MD. MUDDASSIR</div>
     </div>
   </div>
   <div class="scroll-cue"><span class="bar"></span>SCROLL</div>
@@ -504,28 +502,28 @@
       <div class="clip">
         <div class="timecode mono"><span class="node"></span>2020 — 2021</div>
         <h3>First Cuts</h3>
-        <p>Started making edits with no real plan, just figuring out timing, transitions, and how to land a cut on the beat.</p>
+        <p>Where it started — making edits, learning timing, transitions and music sync purely out of curiosity.</p>
         <span class="tag mono">ORIGIN</span>
       </div>
 
       <div class="clip">
         <div class="timecode mono"><span class="node"></span>2023 — 2024</div>
         <h3>Short-Form Originals</h3>
-        <p>Stopped editing other people's stuff and started making my own. Wrote it, shot it, cut it, all from scratch.</p>
+        <p>Moved into creating my own work — directing, shooting and editing original short-form content from concept to final cut.</p>
         <span class="tag mono">SELF-DIRECTED</span>
       </div>
 
       <div class="clip">
         <div class="timecode mono"><span class="node"></span>2026 — Now</div>
         <h3>Same Year, New Roles</h3>
-        <p>Joined Evertime Learning as a video editor, and I'm also Head of Social Media for Cosmos at Sharda University.</p>
+        <p>Joined Evertime Learning as a Video Editor, and currently serve as Head of Social Media for Cosmos at Sharda University.</p>
         <span class="tag mono">CURRENT</span>
       </div>
 
       <div class="clip active">
         <div class="timecode mono"><span class="node"></span>NEXT</div>
         <h3>What's Next</h3>
-        <p>Open to working with a team that wants sharp, story-first editing. Eventually, I'd like to direct a short film of my own.</p>
+        <p>Looking to bring this experience to a team that needs sharp, story-first editing — and eventually direct a short film of my own.</p>
         <span class="tag mono">OPEN TO WORK</span>
       </div>
 
@@ -550,7 +548,7 @@
         <span class="wc-status mono">2026–Present</span>
       </div>
       <h3>Evertime Learning</h3>
-      <p>I edit short-form reels and social content here day to day, usually involved right from the shoot through to the final cut.</p>
+      <p>Day-to-day editing of short-form reels and social content for a digital marketing company — covering shooting through to final cut.</p>
       <a class="wc-link" href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">More on request</a>
     </div>
 
@@ -560,7 +558,7 @@
         <span class="wc-status mono">PRIVATE</span>
       </div>
       <h3>Narrative Short</h3>
-      <p>A short film leaning into psychological horror. It's not posted publicly because of some content in it, but I'm happy to send a private link if you want to see it.</p>
+      <p>A short film project exploring psychological/horror themes. Not posted publicly due to content — happy to share a private link on request.</p>
       <a class="wc-link" href="mailto:muddassiransari11@gmail.com">Request access</a>
     </div>
 
@@ -570,8 +568,8 @@
         <span class="wc-status mono">2024–Present</span>
       </div>
       <h3>Cosmos</h3>
-      <p>Head of Social Media for Cosmos, a society at Sharda University. I handle content strategy, cover events, and shoot photo and video for them.</p>
-      <a class="wc-link" href="https://www.instagram.com/diversityclubsharda" target="_blank" rel="noopener">See content</a>
+      <p>Head of Social Media for Cosmos, a Sharda University society — content strategy, event coverage, photo &amp; video.</p>
+      <a class="wc-link" href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">See content</a>
     </div>
 
   </div>
@@ -584,8 +582,8 @@
           <span class="vc-rec"><span class="dot"></span>REC</span>
           <span>01</span>
         </div>
-        <video controls preload="metadata" poster="vendors_poster.jpg">
-          <source src="vendors.mp4" type="video/mp4">
+        <video controls preload="metadata">
+          <source src="Cinematic_Short.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-caption">
@@ -594,7 +592,7 @@
           <span class="wc-status mono">PERSONAL</span>
         </div>
         <h4>Cinematic Short</h4>
-        <p>Shot and edited this one on my own. Less about story, more about mood, pacing, and cutting to the music.</p>
+        <p>An original cinematic short — shot, graded and edited solo.</p>
       </div>
     </div>
 
@@ -604,8 +602,8 @@
           <span class="vc-rec"><span class="dot"></span>REC</span>
           <span>02</span>
         </div>
-        <video controls preload="metadata" poster="red_room_curse_poster.jpg">
-          <source src="red_room_curse.mp4" type="video/mp4">
+        <video controls preload="metadata">
+          <source src="Red_Room_Curse.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-caption">
@@ -614,7 +612,7 @@
           <span class="wc-status mono">EVERTIME</span>
         </div>
         <h4>Red Room Curse</h4>
-        <p>Shot and edited by me for Evertime Learning.</p>
+        <p>A short-form reel shot and edited by me for Evertime Learning.</p>
       </div>
     </div>
 
@@ -624,8 +622,8 @@
           <span class="vc-rec"><span class="dot"></span>REC</span>
           <span>03</span>
         </div>
-        <video controls preload="metadata" poster="cinematic_short_poster.jpg">
-          <source src="cinematic_short.mp4" type="video/mp4">
+        <video controls preload="metadata">
+          <source src="Narrative_Short_-_Excerpt.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-caption">
@@ -633,8 +631,8 @@
           <span class="wc-index mono">SHORT FILM</span>
           <span class="wc-status mono">EXCERPT</span>
         </div>
-        <h4>Narrative Short Clip</h4>
-        <p>A clip from a short film I'm working on, built around that feeling of being watched. Full version on request.</p>
+        <h4>Narrative Short — Excerpt</h4>
+        <p>A short clip from a narrative short film exploring psychological themes and the feeling of paranoia and being watched — full piece available on request.</p>
       </div>
     </div>
   </div>
@@ -670,7 +668,7 @@
   </div>
 
   <div class="photo-cta">
-    <p>More of my photography lives on VSCO. Film, fashion, architecture, and whatever else catches my eye.</p>
+    <p>Full gallery — film, fashion, abstract, architecture &amp; more — lives on VSCO.</p>
     <a class="wc-link mono" href="https://maddy.vsco.site" target="_blank" rel="noopener" style="font-size:13px;">View full gallery on VSCO</a>
   </div>
 </section>
@@ -705,7 +703,7 @@
     <a class="email mono" href="tel:+918898008253" style="margin-top:10px; display:inline-block;">+91 88980 08253</a>
   </div>
   <div class="foot-bottom">
-    <span>© 2026 MUDDASSIR ANSARI · MUMBAI / GREATER NOIDA, IN</span>
+    <span>© 2026 MUDDASSIR ANSARI — MUMBAI / GREATER NOIDA, IN</span>
     <div class="socials">
       <a href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">INSTAGRAM</a>
       <a href="https://maddy.vsco.site" target="_blank" rel="noopener">VSCO</a>
@@ -727,6 +725,93 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
   revealEls.forEach(el => observer.observe(el));
+
+  // Generate gradient posters for each video card
+  const posters = [
+    {
+      label: 'CINEMATIC SHORT',
+      num: '01',
+      colors: ['#1a0005', '#0d0d0d', '#ff2840'],
+    },
+    {
+      label: 'CLIENT WORK',
+      num: '02',
+      colors: ['#0d0005', '#0a0a0a', '#b81e30'],
+    },
+    {
+      label: 'SHORT FILM',
+      num: '03',
+      colors: ['#05001a', '#0d0d0d', '#b6ff3c'],
+    },
+  ];
+
+  document.querySelectorAll('.video-card video').forEach((video, i) => {
+    const p = posters[i];
+    const canvas = document.createElement('canvas');
+    canvas.width = 400;
+    canvas.height = 711; // 9:16
+    const ctx = canvas.getContext('2d');
+
+    // Background gradient
+    const bg = ctx.createRadialGradient(200, 355, 0, 200, 355, 420);
+    bg.addColorStop(0, p.colors[0]);
+    bg.addColorStop(1, p.colors[1]);
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, 400, 711);
+
+    // Noise grain
+    for (let j = 0; j < 18000; j++) {
+      const x = Math.random() * 400;
+      const y = Math.random() * 711;
+      const a = Math.random() * 0.06;
+      ctx.fillStyle = `rgba(255,255,255,${a})`;
+      ctx.fillRect(x, y, 1, 1);
+    }
+
+    // Accent glow
+    const glow = ctx.createRadialGradient(200, 260, 0, 200, 260, 180);
+    glow.addColorStop(0, p.colors[2] + '22');
+    glow.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, 400, 711);
+
+    // Scan lines
+    ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+    ctx.lineWidth = 1;
+    for (let y = 0; y < 711; y += 4) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(400, y); ctx.stroke();
+    }
+
+    // Play icon
+    ctx.save();
+    ctx.translate(200, 355);
+    ctx.beginPath();
+    ctx.arc(0, 0, 38, 0, Math.PI * 2);
+    ctx.strokeStyle = p.colors[2];
+    ctx.lineWidth = 1.5;
+    ctx.globalAlpha = 0.7;
+    ctx.stroke();
+    ctx.fillStyle = p.colors[2];
+    ctx.beginPath();
+    ctx.moveTo(-11, -14); ctx.lineTo(18, 0); ctx.lineTo(-11, 14);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    // Label bottom
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = 'rgba(9,9,9,0.7)';
+    ctx.fillRect(0, 640, 400, 71);
+    ctx.font = '500 11px "Space Mono", monospace';
+    ctx.fillStyle = p.colors[2];
+    ctx.letterSpacing = '3px';
+    ctx.fillText(p.label, 20, 672);
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.font = '400 11px "Space Mono", monospace';
+    ctx.fillText(p.num, 366, 672);
+
+    video.setAttribute('poster', canvas.toDataURL('image/jpeg', 0.85));
+  });
 </script>
 
 </body>

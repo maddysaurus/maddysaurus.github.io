@@ -210,7 +210,7 @@
   .video-card-wrap:hover .video-card{ border-color: var(--accent2); }
   .video-card video{
     width:100%; height:100%; object-fit: cover; display:block;
-    background: radial-gradient(ellipse at center, #1a0a0d 0%, #0d0d0d 100%);
+    background: #000;
   }
   /* Flash / glint sweep on hover */
   .video-card::after{
@@ -537,7 +537,7 @@
           <span class="vc-rec"><span class="dot"></span>REC</span>
           <span>01</span>
         </div>
-        <video controls preload="metadata">
+        <video controls preload="metadata" poster="vendors_poster.jpg">
           <source src="vendors.mp4" type="video/mp4">
         </video>
       </div>
@@ -547,7 +547,7 @@
           <span class="wc-status mono">PERSONAL</span>
         </div>
         <h4>Cinematic Short</h4>
-        <p>An original cinematic short — shot, graded and edited solo.</p>
+        <p>An original cinematic short — shot, graded and edited solo, focused on mood, pacing and music-driven cuts.</p>
       </div>
     </div>
 
@@ -557,7 +557,7 @@
           <span class="vc-rec"><span class="dot"></span>REC</span>
           <span>02</span>
         </div>
-        <video controls preload="metadata">
+        <video controls preload="metadata" poster="red_room_curse_poster.jpg">
           <source src="red_room_curse.mp4" type="video/mp4">
         </video>
       </div>
@@ -577,8 +577,8 @@
           <span class="vc-rec"><span class="dot"></span>REC</span>
           <span>03</span>
         </div>
-        <video controls preload="metadata">
-          <source src="Narrative_Short_-_Excerpt.mp4" type="video/mp4">
+        <video controls preload="metadata" poster="cinematic_short_poster.jpg">
+          <source src="cinematic_short.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-caption">
@@ -587,7 +587,7 @@
           <span class="wc-status mono">EXCERPT</span>
         </div>
         <h4>Narrative Short — Excerpt</h4>
-        <p>A short clip from a narrative short film exploring psychological themes and the feeling of paranoia and being watched — full piece available on request.</p>
+        <p>A clip from a narrative short film exploring the feeling of paranoia and being watched — full piece available on request.</p>
       </div>
     </div>
   </div>
@@ -680,93 +680,6 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
   revealEls.forEach(el => observer.observe(el));
-
-  // Generate gradient posters for each video card
-  const posters = [
-    {
-      label: 'CINEMATIC SHORT',
-      num: '01',
-      colors: ['#1a0005', '#0d0d0d', '#ff2840'],
-    },
-    {
-      label: 'CLIENT WORK',
-      num: '02',
-      colors: ['#0d0005', '#0a0a0a', '#b81e30'],
-    },
-    {
-      label: 'SHORT FILM',
-      num: '03',
-      colors: ['#05001a', '#0d0d0d', '#b6ff3c'],
-    },
-  ];
-
-  document.querySelectorAll('.video-card video').forEach((video, i) => {
-    const p = posters[i];
-    const canvas = document.createElement('canvas');
-    canvas.width = 400;
-    canvas.height = 711; // 9:16
-    const ctx = canvas.getContext('2d');
-
-    // Background gradient
-    const bg = ctx.createRadialGradient(200, 355, 0, 200, 355, 420);
-    bg.addColorStop(0, p.colors[0]);
-    bg.addColorStop(1, p.colors[1]);
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, 400, 711);
-
-    // Noise grain
-    for (let j = 0; j < 18000; j++) {
-      const x = Math.random() * 400;
-      const y = Math.random() * 711;
-      const a = Math.random() * 0.06;
-      ctx.fillStyle = `rgba(255,255,255,${a})`;
-      ctx.fillRect(x, y, 1, 1);
-    }
-
-    // Accent glow
-    const glow = ctx.createRadialGradient(200, 260, 0, 200, 260, 180);
-    glow.addColorStop(0, p.colors[2] + '22');
-    glow.addColorStop(1, 'transparent');
-    ctx.fillStyle = glow;
-    ctx.fillRect(0, 0, 400, 711);
-
-    // Scan lines
-    ctx.strokeStyle = 'rgba(255,255,255,0.025)';
-    ctx.lineWidth = 1;
-    for (let y = 0; y < 711; y += 4) {
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(400, y); ctx.stroke();
-    }
-
-    // Play icon
-    ctx.save();
-    ctx.translate(200, 355);
-    ctx.beginPath();
-    ctx.arc(0, 0, 38, 0, Math.PI * 2);
-    ctx.strokeStyle = p.colors[2];
-    ctx.lineWidth = 1.5;
-    ctx.globalAlpha = 0.7;
-    ctx.stroke();
-    ctx.fillStyle = p.colors[2];
-    ctx.beginPath();
-    ctx.moveTo(-11, -14); ctx.lineTo(18, 0); ctx.lineTo(-11, 14);
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
-
-    // Label bottom
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = 'rgba(9,9,9,0.7)';
-    ctx.fillRect(0, 640, 400, 71);
-    ctx.font = '500 11px "Space Mono", monospace';
-    ctx.fillStyle = p.colors[2];
-    ctx.letterSpacing = '3px';
-    ctx.fillText(p.label, 20, 672);
-    ctx.fillStyle = 'rgba(255,255,255,0.3)';
-    ctx.font = '400 11px "Space Mono", monospace';
-    ctx.fillText(p.num, 366, 672);
-
-    video.setAttribute('poster', canvas.toDataURL('image/jpeg', 0.85));
-  });
 </script>
 
 </body>

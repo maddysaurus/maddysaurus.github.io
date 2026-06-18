@@ -120,7 +120,8 @@
   }
   .hero-meta a{ color: var(--muted); text-decoration:none; border-bottom: 1px solid var(--line); padding-bottom:2px; transition: color .25s, border-color .25s;}
   .hero-meta a:hover{ color: var(--accent); border-color: var(--accent); }
-  .hero-inner{ display:flex; align-items:center; justify-content:space-between; gap: 60px; flex-wrap: wrap; }
+  .hero-inner{ display:flex; flex-direction: column; gap: 32px; }
+  .hero-name-row{ display:flex; align-items:center; gap: 32px; flex-wrap: nowrap; }
   .hero-text{ flex: 1 1 auto; min-width: 280px; }
   .portrait-wrap{
     position: relative; flex-shrink: 0;
@@ -468,8 +469,17 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-text">
+    <div class="hero-name-row">
       <h1 class="title"><span class="last">MUDDASSIR</span> ANSARI</h1>
+      <div class="portrait-wrap">
+        <img src="portrait.jpg" alt="Muddassir Ansari">
+        <div class="portrait-scanline"></div>
+        <svg class="portrait-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <rect x="1" y="1" width="98" height="98"/>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-text">
       <p class="role-line">
         <strong>Video Editor &amp; Visual Storyteller</strong>, currently editing short-form reels and social content for <strong>Evertime Learning</strong>. Experienced in shooting, colour grading, and end-to-end post-production. Serving as Head of Social Media for <strong>Cosmos, Sharda University's Diversity Club</strong>, with a background in psychology that informs a detail-oriented, behaviour-driven approach to visual storytelling.
       </p>
@@ -479,13 +489,6 @@
         <a href="https://instagram.com/maddyysaurus" target="_blank" rel="noopener">@maddyysaurus on instagram</a>
         <a href="https://maddy.vsco.site" target="_blank" rel="noopener">VSCO photography</a>
       </div>
-    </div>
-    <div class="portrait-wrap">
-      <img src="portrait.jpg" alt="Muddassir Ansari">
-      <div class="portrait-scanline"></div>
-      <svg class="portrait-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <rect x="1" y="1" width="98" height="98"/>
-      </svg>
     </div>
   </div>
   <div class="scroll-cue"><span class="bar"></span>SCROLL</div>
